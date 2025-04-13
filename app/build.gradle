@@ -60,10 +60,16 @@ dependencies {
     implementation libs.androidx.core
 
     implementation libs.clevertap.android.sdk // checkout the latest sdk version at https://github.com/CleverTap/clevertap-android-sdk/blob/master/README.md#-installation
-    implementation libs.firebase.messaging
-    //implementation 'com.google.android.gms:play-services-ads:24.2.0'
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+
+    // Add the dependencies for the Firebase Cloud Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-messaging")
+    implementation("com.google.firebase:firebase-analytics")
 
 }
 
 // at the end of the build.gradle file
-apply plugin: 'com.google.gms.google-services'
+// apply plugin: 'com.google.gms.google-services'
